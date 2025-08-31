@@ -9,7 +9,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: adrien
       MONGO_INITDB_ROOT_PASSWORD: franto
-      MONGO_INITDB_ROOT_DATABASE: etudiant-service
+      MONGO_INITDB_DATABASE: etudiant-service
     volumes:
       - ./data:/data/db
 
@@ -21,4 +21,3 @@ services:
       - "8080:8080"
     depends_on:
       - mongodb
-

@@ -22,6 +22,7 @@ public class EtudiantService {
                 .matricule(etudiantRequest.matricule())
                 .nom(etudiantRequest.nom())
                 .prenoms(etudiantRequest.prenoms())
+                .sexe(etudiantRequest.sexe())
                 .niveau(etudiantRequest.niveau())
                 .id_travail(etudiantRequest.id_travail())
                 .build();
@@ -48,6 +49,7 @@ public class EtudiantService {
             etudiant.setMatricule(etudiantRequest.matricule());
             etudiant.setNom(etudiantRequest.nom());
             etudiant.setPrenoms(etudiantRequest.prenoms());
+            etudiant.setSexe(etudiantRequest.sexe());
             etudiant.setNiveau(etudiantRequest.niveau());
             etudiant.setId_travail(etudiantRequest.id_travail());
             Etudiant updated = etudiantRepository.save(etudiant);
@@ -72,6 +74,7 @@ public class EtudiantService {
                 etudiant.getNom(),
                 etudiant.getPrenoms(),
                 etudiant.getNiveau(),
+                etudiant.getSexe(),
                 etudiant.getId_travail()
         );
     }

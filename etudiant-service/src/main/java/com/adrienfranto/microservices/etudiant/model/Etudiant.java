@@ -20,6 +20,7 @@ public class Etudiant {
     private String matricule;
     private String nom;
     private String prenoms;
+    private String sexe;
     private String niveau;
     private BigDecimal id_travail;
 
