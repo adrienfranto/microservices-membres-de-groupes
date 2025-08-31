@@ -73,8 +73,8 @@ public class EtudiantService {
                 etudiant.getMatricule(),
                 etudiant.getNom(),
                 etudiant.getPrenoms(),
-                etudiant.getNiveau(),
                 etudiant.getSexe(),
+                etudiant.getNiveau(),
                 etudiant.getId_travail()
         );
     }
