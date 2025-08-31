@@ -1,82 +1,82 @@
-version: "3.8"
+  version: "3.8"
 
-services:
-  product-service-postgres:
-    image: postgres:15
-    container_name: product-service-postgres
-    environment:
-      POSTGRES_DB: product_service
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: devsecops
-    ports:
-      - "5430:5432"
-    volumes:
-      - ./product-service/postgres-data:/var/lib/postgresql/data
-      - ./product-service/docker/postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
-    restart: always
+  services:
+    etudiant-service-postgres:
+      image: postgres:15
+      container_name: etudiant-service-postgres
+      environment:
+        POSTGRES_DB: etudiant_service
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: devsecops
+      ports:
+        - "5430:5432"
+      volumes:
+        - ./etudiant-service/postgres-data:/var/lib/postgresql/data
+        - ./etudiant-service/docker/postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      restart: always
 
-  product-service:
-    build: ./product-service
-    container_name: product-service
-    ports:
-      - "8080:8080"
-    depends_on:
-      - product-service-postgres
-    restart: always
+    etudiant-service:
+      build: ./etudiant-service
+      container_name: etudiant-service
+      ports:
+        - "8080:8080"
+      depends_on:
+        - etudiant-service-postgres
+      restart: always
 
-  order-service-postgres:
-    image: postgres:15
-    container_name: order-service-postgres
-    environment:
-      POSTGRES_DB: order_service
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: devsecops
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./order-service/postgres-data:/var/lib/postgresql/data
-      - ./order-service/docker/postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
-    restart: always
+    travail-service-postgres:
+      image: postgres:15
+      container_name: travail-service-postgres
+      environment:
+        POSTGRES_DB: travail_service
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: devsecops
+      ports:
+        - "5432:5432"
+      volumes:
+        - ./travail-service/postgres-data:/var/lib/postgresql/data
+        - ./travail-service/docker/postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      restart: always
 
-  order-service:
-    build: ./order-service
-    container_name: order-service
-    ports:
-      - "8081:8081"
-    depends_on:
-      - order-service-postgres
-    restart: always
+    travail-service:
+      build: ./travail-service
+      container_name: travail-service
+      ports:
+        - "8081:8081"
+      depends_on:
+        - travail-service-postgres
+      restart: always
 
-  inventory-service-postgres:
-    image: postgres:15
-    container_name: inventory-service-postgres
-    environment:
-      POSTGRES_DB: inventory_service
-      POSTGRES_USER: adrien
-      POSTGRES_PASSWORD: franto
-    ports:
-      - "5433:5432"
-    volumes:
-      - ./inventory-service/postgres-data:/var/lib/postgresql/data
-      - ./inventory-service/docker/postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
-    restart: always
+    groupe-service-postgres:
+      image: postgres:15
+      container_name: groupe-service-postgres
+      environment:
+        POSTGRES_DB: groupe_service
+        POSTGRES_USER: adrien
+        POSTGRES_PASSWORD: franto
+      ports:
+        - "5433:5432"
+      volumes:
+        - ./groupe-service/postgres-data:/var/lib/postgresql/data
+        - ./groupe-service/docker/postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      restart: always
 
-  inventory-service:
-    build: ./inventory-service
-    container_name: inventory-service
-    ports:
-      - "8082:8082"
-    depends_on:
-      - inventory-service-postgres
-    restart: always
+    groupe-service:
+      build: ./groupe-service
+      container_name: groupe-service
+      ports:
+        - "8082:8082"
+      depends_on:
+        - groupe-service-postgres
+      restart: always
 
-  api-gateway:
-    build: ./api-gateway
-    container_name: api-gateway
-    ports:
-      - "9000:9000"
-    depends_on:
-      - product-service
-      - order-service
-      - inventory-service
-    restart: always
+    api-gateway:
+      build: ./api-gateway
+      container_name: api-gateway
+      ports:
+        - "9000:9000"
+      depends_on:
+        - etudiant-service
+        - travail-service
+        - groupe-service
+      restart: always
