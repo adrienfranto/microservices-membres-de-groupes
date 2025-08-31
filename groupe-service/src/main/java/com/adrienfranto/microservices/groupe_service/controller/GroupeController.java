@@ -17,9 +17,13 @@ public class GroupeController {
     private final GroupeService groupeService;
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public boolean inGroup(@RequestParam String nomGroupe,@RequestParam Integer quantite){
-        return groupeService.InGroup(nomGroupe,quantite);
+    public boolean inGroup(
+            @RequestParam("nomTravail") String nomTravail,
+            @RequestParam(value = "quantite", required = false, defaultValue = "0") Integer quantite
+    ){
+        return groupeService.InGroup(nomTravail, quantite);
     }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
