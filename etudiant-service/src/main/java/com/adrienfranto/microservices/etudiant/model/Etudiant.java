@@ -18,6 +18,7 @@ public class Etudiant {
     @Id
     private String id;
     private String matricule;
+    private String image;
     private String nom;
     private String prenoms;
     private String sexe;

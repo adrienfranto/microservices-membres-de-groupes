@@ -4,6 +4,7 @@ import Etudiant from './Etudiant'
 const App = () => {
   return (
     <div>
+      <Etudiant/>
     </div>
   )
 }
