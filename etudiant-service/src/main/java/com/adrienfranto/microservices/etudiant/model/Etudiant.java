@@ -22,6 +22,6 @@ public class Etudiant {
     private String prenoms;
     private String sexe;
     private String niveau;
-    private BigDecimal id_travail;
+    private BigDecimal id_groupe;
 
 }

@@ -24,7 +24,7 @@ public class EtudiantService {
                 .prenoms(etudiantRequest.prenoms())
                 .sexe(etudiantRequest.sexe())
                 .niveau(etudiantRequest.niveau())
-                .id_travail(etudiantRequest.id_travail())
+                .id_groupe(etudiantRequest.id_groupe())
                 .build();
 
         etudiant = etudiantRepository.save(etudiant);
@@ -51,7 +51,7 @@ public class EtudiantService {
             etudiant.setPrenoms(etudiantRequest.prenoms());
             etudiant.setSexe(etudiantRequest.sexe());
             etudiant.setNiveau(etudiantRequest.niveau());
-            etudiant.setId_travail(etudiantRequest.id_travail());
+            etudiant.setId_groupe(etudiantRequest.id_groupe());
             Etudiant updated = etudiantRepository.save(etudiant);
             log.info(" Étudiant modifié avec succès, id: " + updated.getId());
             return mapToResponse(updated);
@@ -75,7 +75,7 @@ public class EtudiantService {
                 etudiant.getPrenoms(),
                 etudiant.getSexe(),
                 etudiant.getNiveau(),
-                etudiant.getId_travail()
+                etudiant.getId_groupe()
         );
     }
 }
