@@ -1,7 +1,6 @@
-version: "3.8"
 services:
   api-gateway:
-    image: api-gateway:latest   # efa build teo an-toerana
+    build: .
     container_name: api-gateway
     ports:
       - "9000:9000"
