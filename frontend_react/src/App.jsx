@@ -50,8 +50,8 @@ const App = () => {
             </div>
             {sidebarOpen && (
               <div className="ml-3">
-                <h1 className="text-xl font-bold text-gray-800">GestPro</h1>
-                <p className="text-sm text-gray-500">Gestion Académique</p>
+                <h1 className="text-xl font-bold text-gray-800">GestMembres</h1>
+                <p className="text-sm text-gray-500">Gestion membres</p>
               </div>
             )}
           </div>
