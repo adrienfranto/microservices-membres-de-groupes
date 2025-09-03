@@ -18,7 +18,7 @@ const App = () => {
   // Fetch les étudiants pour l'affichage dans la navbar
   const fetchEtudiantsForNavbar = async () => {
     try {
-      const response = await fetch("http://192.168.88.251:9000/api/etudiants");
+      const response = await fetch("http://192.168.88.50:9000/api/etudiants");
       const data = await response.json();
       setEtudiants(data);
     } catch (error) {
@@ -110,7 +110,7 @@ const App = () => {
                 {etudiants.length > 0 && etudiants[0].image ? (
                   <img
                     className="h-8 w-8 rounded-full object-cover"
-                    src={`http://192.168.88.251:9000${etudiants[0].image}`}
+                    src={`http://192.168.88.50:9000${etudiants[0].image}`}
                     alt={etudiants[0].prenoms}
                   />
                 ) : (

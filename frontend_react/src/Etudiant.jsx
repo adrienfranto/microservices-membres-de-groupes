@@ -19,8 +19,8 @@ const Etudiant = () => {
   const [studentToDelete, setStudentToDelete] = React.useState(null);
   const [imagePreview, setImagePreview] = React.useState(null);
 
-  const ETUDIANT_API = "http://192.168.88.251:9000/api/etudiants";
-  const GROUPE_API = "http://192.168.88.251:9000/api/groupes/list";
+  const ETUDIANT_API = "http://192.168.88.50:9000/api/etudiants";
+  const GROUPE_API = "http://192.168.88.50:9000/api/groupes/list";
 
   const fetchEtudiants = async () => {
     try {
@@ -118,7 +118,8 @@ const Etudiant = () => {
       ...etudiant,
       image: null,
     });
-    setImagePreview(etudiant.image ? `http://192.168.88.251:9000${etudiant.image}` : null);
+    setImagePreview(etudiant.image ? `http://192.168.88.50:9000${etudiant.image}` : null);
+    setImagePreview(etudiant.image ? `http://192.168.88.50:9000${etudiant.image}` : null);
     setIsEditing(true);
     setShowModal(true);
   };
@@ -198,7 +199,7 @@ const Etudiant = () => {
                         {etudiant.image ? (
                           <img
                             className="h-12 w-12 rounded-full object-cover border-2 border-gray-200"
-                            src={`http://192.168.88.251:9000${etudiant.image}`}
+                            src={`http://192.168.88.50:9000${etudiant.image}`}
                             alt={etudiant.nom}
                           />
                         ) : (
