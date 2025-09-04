@@ -14,21 +14,21 @@ public class Routes {
     @Bean
     public RouterFunction<ServerResponse> etudiantServiceRoute(){
         return GatewayRouterFunctions.route("etudiant_service")
-                .route(RequestPredicates.path("/api/etudiants/**"), HandlerFunctions.http("http://192.168.88.50:8080"))
+                .route(RequestPredicates.path("/api/etudiants/**"), HandlerFunctions.http("http://192.168.107.50:8080"))
                 .build();
     }
 
     @Bean
     public RouterFunction<ServerResponse> orderServiceRoute(){
         return GatewayRouterFunctions.route("travail_service")
-                .route(RequestPredicates.path("/api/travail/**"),HandlerFunctions.http("http://192.168.88.50:8081"))
+                .route(RequestPredicates.path("/api/travail/**"),HandlerFunctions.http("http://192.168.107.50:8081"))
                 .build();
     }
 
     @Bean
     public RouterFunction<ServerResponse> inventoryRoute(){
         return GatewayRouterFunctions.route("groupe_service")
-                .route(RequestPredicates.path("/api/groupes/**"),HandlerFunctions.http("http://192.168.88.50:8082"))
+                .route(RequestPredicates.path("/api/groupes/**"),HandlerFunctions.http("http://192.168.107.50:8082"))
                 .build();
     }
 }

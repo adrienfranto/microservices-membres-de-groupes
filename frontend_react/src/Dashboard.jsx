@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Briefcase, UserCheck, TrendingUp, Calendar, Award, BookOpen, Target } from 'lucide-react';
 
-const ETUDIANT_API = "http://192.168.88.50:9000/api/etudiants";
-const GROUPE_API = "http://192.168.88.50:9000/api/groupes/list";
-const TRAVAIL_API = "http://192.168.88.50:9000/api/travail";
+const ETUDIANT_API = "http://192.168.107.50:9000/api/etudiants";
+const GROUPE_API = "http://192.168.107.50:9000/api/groupes/list";
+const TRAVAIL_API = "http://192.168.107.50:9000/api/travail";
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
