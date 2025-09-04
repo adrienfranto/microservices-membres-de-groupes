@@ -367,7 +367,7 @@ const Etudiant = () => {
                 {/* Troisième ligne : Groupe  et matricule*/}
                 <div className="grid grid-cols-2 gap-4">
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Matricule</label>
                     <input
                       type="text"
                       name="matricule"
