@@ -1,4 +1,4 @@
-package com.techie.microservices.api_gateway;
+package com.adrienfranto.microservices.api_gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

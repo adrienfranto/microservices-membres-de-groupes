@@ -1,5 +1,4 @@
 package com.adrienfranto.microservices.travail_service.service;
-
 import com.adrienfranto.microservices.travail_service.client.GroupeClient;
 import com.adrienfranto.microservices.travail_service.dto.TravailDto;
 import com.adrienfranto.microservices.travail_service.dto.TravailRequest;
@@ -10,19 +9,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class TravailService {
-    private final TravailRepository travailRepository;
-    private final GroupeClient groupeClient;
-
-    // CREATE
+    private final TravailRepository travailRepository;  private final GroupeClient groupeClient;
     public TravailDto placeTravail(TravailRequest travailRequest) {
         boolean isGroup = groupeClient
                 .isInGroupe(travailRequest.nomTravail(), travailRequest.quantite());
-
         if (isGroup) {
             Travail travail = new Travail();
             travail.setOrdreTravail(travailRequest.ordreTravail());
@@ -40,7 +34,6 @@ public class TravailService {
         }
     }
 
-    // READ - all
     public List<TravailDto> getAllTravaux() {
         return travailRepository.findAll()
                 .stream()
@@ -48,14 +41,12 @@ public class TravailService {
                 .toList();
     }
 
-    // READ - by id
     public TravailDto getTravailById(Long id) {
         Travail travail = travailRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Travail non trouvé avec id : " + id));
         return mapToDto(travail);
     }
 
-    // UPDATE
     public TravailDto updateTravail(Long id, TravailDto travailDto) {
         Travail travail = travailRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Travail non trouvé avec id : " + id));
@@ -70,7 +61,6 @@ public class TravailService {
         return mapToDto(updated);
     }
 
-    // DELETE
     public void deleteTravail(Long id) {
         Travail travail = travailRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Travail non trouvé avec id : " + id));

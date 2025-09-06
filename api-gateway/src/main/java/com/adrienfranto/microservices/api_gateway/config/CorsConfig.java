@@ -1,4 +1,4 @@
-package com.techie.microservices.api_gateway.config;
+package com.adrienfranto.microservices.api_gateway.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -12,13 +12,13 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**") // API rehetra
-                        .allowedOrigins("*") // na apetrao "http://localhost:3000" raha frontend React
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
                         .allowedHeaders("*")
                         .exposedHeaders("Authorization", "Content-Disposition")
-                        .allowCredentials(false) // ataovy true raha mila cookie/session
-                        .maxAge(3600); // cache preflight 1 ora
+                        .allowCredentials(false)
+                        .maxAge(3600);
             }
         };
     }

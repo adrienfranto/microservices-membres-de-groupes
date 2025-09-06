@@ -1,5 +1,4 @@
 package com.adrienfranto.microservices.etudiant.service;
-
 import com.adrienfranto.microservices.etudiant.dto.EtudiantReponse;
 import com.adrienfranto.microservices.etudiant.dto.EtudiantRequest;
 import com.adrienfranto.microservices.etudiant.model.Etudiant;
@@ -18,40 +17,25 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class EtudiantService {
-
-    private final EtudiantRepository etudiantRepository;
-    private final String uploadDir = "uploads/images";
-
-    // Crée automatiquement le dossier au démarrage de l'application
+    private final EtudiantRepository etudiantRepository;private final String uploadDir = "uploads/images";
     @PostConstruct
     public void init() {
         try {
             Path path = Paths.get(uploadDir);
-            if (!Files.exists(path)) {
-                Files.createDirectories(path);
-                log.info("Dossier de stockage créé : " + path.toAbsolutePath());
+            if (!Files.exists(path)) {  Files.createDirectories(path);log.info("Dossier de stockage créé : " + path.toAbsolutePath());
             }
-        } catch (IOException e) {
-            throw new RuntimeException("Impossible de créer le dossier d'upload", e);
-        }
+        } catch (IOException e) { throw new RuntimeException("Impossible de créer le dossier d'upload", e);}
     }
-
     public EtudiantReponse ajouterEtudiant(EtudiantRequest etudiantRequest, MultipartFile imageFile) {
         String imageName = storeImage(imageFile);
 
-        Etudiant etudiant = Etudiant.builder()
-                .matricule(etudiantRequest.matricule())
-                .nom(etudiantRequest.nom())
-                .prenoms(etudiantRequest.prenoms())
-                .sexe(etudiantRequest.sexe())
-                .niveau(etudiantRequest.niveau())
-                .id_groupe(etudiantRequest.id_groupe())
-                .image(imageName)
+        Etudiant etudiant = Etudiant.builder().matricule(etudiantRequest.matricule()).nom(etudiantRequest.nom())
+                .prenoms(etudiantRequest.prenoms()).sexe(etudiantRequest.sexe()).niveau(etudiantRequest.niveau())
+                .id_groupe(etudiantRequest.id_groupe()).image(imageName)
                 .build();
 
         etudiant = etudiantRepository.save(etudiant);
@@ -102,12 +86,9 @@ public class EtudiantService {
         return new EtudiantReponse(
                 etudiant.getId(),
                 "/api/etudiants/images/" + etudiant.getImage(),
-                etudiant.getMatricule(),
-                etudiant.getNom(),
-                etudiant.getPrenoms(),
-                etudiant.getSexe(),
-                etudiant.getNiveau(),
-                etudiant.getId_groupe()
+                etudiant.getMatricule(), etudiant.getNom(),
+                etudiant.getPrenoms(), etudiant.getSexe(),
+                etudiant.getNiveau(),etudiant.getId_groupe()
         );
     }
 
