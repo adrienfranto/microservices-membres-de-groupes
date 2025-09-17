@@ -13,7 +13,7 @@ const Groupe = () => {
   const [showDeleteModal, setShowDeleteModal] = React.useState(false);
   const [groupeToDelete, setGroupeToDelete] = React.useState(null);
 
-  const API_URL = "http://192.168.107.50:9000/api/groupes";
+  const API_URL = "http://192.168.107.13:9000/api/groupes";
 
   const fetchGroupes = async () => {
     try {
